@@ -28,10 +28,10 @@ install:
           cp libcurl\dmd2\windows\bin\libcurl.dll libcurl\ldc2
           cp libcurl\dmd2\windows\lib32mscoff\curl.lib libcurl\ldc2
         }
-  - set PATH=%CD%\libcurl\ldc2;%PATH%
+        #- set PATH=%CD%\libcurl\ldc2;%PATH%
 
   # Add ruby to PATH
-  - set PATH=C:\Ruby%ruby_version%\bin;%PATH% 
+  - set PATH=C:\Ruby%ruby_version%\bin;c:\Tools\curl\bin;%PATH% 
 
   # Download & extract openssl
   - ps: |
@@ -50,6 +50,7 @@ install:
 
       #- where /r c:\ libcurl.dll
       #
+  - echo $PATH
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
   - ruby -v
