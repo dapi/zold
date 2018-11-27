@@ -33,7 +33,8 @@ install:
 
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
-  - bundle config build.patron --with-curl-dir=%curl_dir%
+  #- bundle config build.patron --with-curl-dir=%curl_dir%
+  #- bundle config build.curb --with-curl-dir=%curl_dir%
   - ruby -v
   - bundle -v
 build_script:
