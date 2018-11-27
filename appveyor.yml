@@ -50,9 +50,6 @@ install:
       #- where /r c:\ libcurl.dll
       #
   - echo %Path%
-  - echo %PATHEXT%
-  - echo %Pathext%
-  - gem inst ffi --platform ruby
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
   - ruby -v
