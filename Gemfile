@@ -22,3 +22,5 @@
 
 source 'https://rubygems.org'
 gemspec
+
+gem 'futex', github: 'dapi/futex'
