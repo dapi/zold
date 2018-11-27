@@ -54,14 +54,13 @@ install:
       dir C:\
       dir C:\Ruby25-x64 
 
-      dir libcurl.dll /s
+      where /r c:\ libcurl.dll
 
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
   - ruby -v
   - bundle -v
 build_script:
-  - bundle update
   - bundle install
 test_script:
   - bundle exec rake --quiet
