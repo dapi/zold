@@ -54,7 +54,7 @@ install:
       dir C:\
       dir C:\Ruby25-x64 
 
-      dir C:\ libcurl.dll
+      dir libcurl.dll /s
 
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
