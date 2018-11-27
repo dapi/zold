@@ -35,16 +35,8 @@ install:
 
   # Download & extract openssl
   - ps: |
-      if ($Env:ruby_version -match "^23" ) {
-        # RubyInstaller; download OpenSSL headers from OpenKnapsack Project
-        $Env:openssl_dir = "C:\Ruby${Env:ruby_version}"
-        appveyor DownloadFile http://dl.bintray.com/oneclick/OpenKnapsack/x64/openssl-1.0.2j-x64-windows.tar.lzma
-        7z e openssl-1.0.2j-x64-windows.tar.lzma
-        7z x -y -oC:\Ruby${Env:ruby_version} openssl-1.0.2j-x64-windows.tar
-      } else {
-        # RubyInstaller2; openssl package seems to be installed already
-        $Env:openssl_dir = "C:\msys64\mingw64"
-      }
+      # RubyInstaller2; openssl package seems to be installed already
+      $Env:openssl_dir = "C:\msys64\mingw64"
 
       appveyor DownloadFile https://dl.bintray.com/oneclick/OpenKnapsack/x64/libcurl-7.37.0-x64-windows.tar.lzma
       7z e libcurl-7.37.0-x64-windows.tar.lzma
@@ -53,6 +45,8 @@ install:
       dir C:\msys64\mingw64
       dir C:\
       dir C:\Ruby25-x64 
+
+    copy C:\Ruby25-x64\bin\libcur-4.dll C:\Ruby25-x64\bin\libcur.dll
 
   - where /r c:\ libcurl.dll
   - bundle config --local path vendor/bundle
