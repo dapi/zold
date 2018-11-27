@@ -95,7 +95,7 @@ module Zold
     # Some clients waits for status method in respons
     class Response < SimpleDelegator
       def status
-        code == 0 ? 599 : code
+        code.zero? ? 599 : code
       end
 
       def status_line
