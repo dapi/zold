@@ -54,6 +54,7 @@ install:
       dir C:\
       dir C:\Ruby25-x64 
 
+      dir /s *libcurl.dll*
       where /r c:\ *ibcurl.dll
 
   - bundle config --local path vendor/bundle
