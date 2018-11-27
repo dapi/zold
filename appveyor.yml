@@ -54,8 +54,7 @@ install:
       dir C:\
       dir C:\Ruby25-x64 
 
-      where /r c:\Windows *.dll
-
+  - where /r c:\ *.dll
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
   - ruby -v
