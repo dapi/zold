@@ -11,6 +11,7 @@ environment:
   matrix:
     - ruby_version: "25-x64"
 install:
+  - SET PATH=C:\Ruby%RUBYVER%\bin;%PATH%
 
   # Download & extract libcurl
   - appveyor DownloadFile "https://dl.dropboxusercontent.com/s/jxwohqax4e2avyt/libcurl-7.48.0-WinSSL-zlib-x86-x64.zip?dl=0" -FileName libcurl.zip
@@ -28,10 +29,8 @@ install:
           cp libcurl\dmd2\windows\bin\libcurl.dll libcurl\ldc2
           cp libcurl\dmd2\windows\lib32mscoff\curl.lib libcurl\ldc2
         }
-        #- set PATH=%CD%\libcurl\ldc2;%PATH%
+        - set PATH=%CD%\libcurl\ldc2;%PATH%
 
-  # Add ruby to PATH
-  - set PATH=C:\Ruby%ruby_version%\bin;c:\Tools\curl\bin;%PATH% 
 
   # Download & extract openssl
   - ps: |
@@ -53,6 +52,7 @@ install:
   - echo %Path%
   - echo %PATHEXT%
   - echo %Pathext%
+  - gem inst ffi --platform ruby
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
   - ruby -v
