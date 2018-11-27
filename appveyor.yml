@@ -41,14 +41,7 @@ install:
       7z e libcurl-7.37.0-x64-windows.tar.lzma
       7z x -y -oC:\Ruby${Env:ruby_version} libcurl-7.37.0-x64-windows.tar
 
-      dir C:\msys64\mingw64
-      dir C:\
-      dir C:\Ruby25-x64 
-
-      copy C:\Ruby25-x64\bin\libcurl-4.dll C:\Ruby25-x64\bin\libcurl.dll
-
-      #- where /r c:\ libcurl.dll
-      #
+      # copy C:\Ruby25-x64\bin\libcurl-4.dll C:\Ruby25-x64\bin\libcurl.dll
   - echo %Path%
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
