@@ -46,7 +46,12 @@ install:
         $Env:openssl_dir = "C:\msys64\mingw64"
       }
 
-      C:\Ruby21\DevKit\devkitvars.bat
+      appveyor DownloadFile https://dl.bintray.com/oneclick/OpenKnapsack/x64/libcurl-7.37.0-x64-windows.tar.lzma
+      7z e libcurl-7.37.0-x64-windows.tar.lzma
+      7z x -y -oC:\Ruby${Env:ruby_version} libcurl-7.37.0-x64-windows.tar
+
+      dir C:\msys64\mingw64
+      dir C:\
 
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
