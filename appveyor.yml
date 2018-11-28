@@ -17,7 +17,9 @@ install:
   # Copy libcurl.{dll,lib} and add to PATH, so that libcurl.dll is found during the tests
   - ps: |
         appveyor DownloadFile "https://dl.dropboxusercontent.com/s/jxwohqax4e2avyt/libcurl-7.48.0-WinSSL-zlib-x86-x64.zip?dl=0" -FileName libcurl.zip
+        dir
         md libcurl
+        dir
         cd libcurl
         7z x ..\libcurl.zip > nul
         cp dmd2\windows\bin64\libcurl.dll C:\Ruby${Env:ruby_version}\bin
@@ -25,8 +27,8 @@ install:
         cd ..
 
   # RubyInstaller2; openssl package seems to be installed already
-  - bundle config build.openssl --with-openssl-dir=C:\msys64\mingw64
-
+  - set openssl_dir="C:\msys64\mingw64"
+  - bundle config build.openssl --with-openssl-dir=%openssl_dir%
   - bundle config --local path vendor/bundle
   - ruby -v
   - bundle -v
