@@ -35,7 +35,8 @@ install:
           cp libcurl\dmd2\windows\bin\libcurl.dll C:\Ruby25-x64\bin
         }
         dir C:\Ruby25-x64\bin
-  - set PATH=%CD%\libcurl\ldc2;%PATH%
+
+        $Env:PATH = "C:\Ruby${Env:ruby_version}\bin;${Env:PATH}"
 
 
   # Download & extract openssl
