@@ -28,12 +28,13 @@ install:
           cp libcurl\dmd2\windows\bin64\libcurl.dll libcurl\ldc2
           cp libcurl\dmd2\windows\bin64\libcurl.dll C:\Ruby%RUBYVER%\bin
           cp libcurl\dmd2\windows\lib64\curl.lib libcurl\ldc2
-          dir C:\Ruby%RUBYVER%\bin
         } Else {
           echo 'curl 32'
           cp libcurl\dmd2\windows\bin\libcurl.dll libcurl\ldc2
           cp libcurl\dmd2\windows\lib32mscoff\curl.lib libcurl\ldc2
+          cp libcurl\dmd2\windows\bin\libcurl.dll C:\Ruby%RUBYVER%\bin
         }
+      dir C:\Ruby%RUBYVER%\bin
   - set PATH=%CD%\libcurl\ldc2;%PATH%
 
 
