@@ -30,8 +30,8 @@ install:
   - ruby -v
   - bundle -v
 build_script:
+  - gem install eventmachine --platform-ruby
   - bundle install
-  - gem search -l eventmachine
 test_script:
   - bundle exec rake --quiet
 cache:

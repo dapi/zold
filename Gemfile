@@ -22,5 +22,3 @@
 
 source 'https://rubygems.org'
 gemspec
-
-gem 'eventmachine', platforms: :ruby
