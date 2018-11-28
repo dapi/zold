@@ -23,9 +23,13 @@ install:
   - ps: |
         md libcurl\ldc2
         If ($Env:APPVEYOR_JOB_ARCH -eq 'x64') {
+          echo 'curl x64'
           cp libcurl\dmd2\windows\bin64\libcurl.dll libcurl\ldc2
+          cp libcurl\dmd2\windows\bin64\libcurl.dll C:\Ruby%RUBYVER%\bin
           cp libcurl\dmd2\windows\lib64\curl.lib libcurl\ldc2
+          dir C:\Ruby%RUBYVER%\bin
         } Else {
+          echo 'curl 32'
           cp libcurl\dmd2\windows\bin\libcurl.dll libcurl\ldc2
           cp libcurl\dmd2\windows\lib32mscoff\curl.lib libcurl\ldc2
         }
@@ -37,12 +41,11 @@ install:
       # RubyInstaller2; openssl package seems to be installed already
       $Env:openssl_dir = "C:\msys64\mingw64"
 
-      appveyor DownloadFile https://dl.bintray.com/oneclick/OpenKnapsack/x64/libcurl-7.37.0-x64-windows.tar.lzma
-      7z e libcurl-7.37.0-x64-windows.tar.lzma
-      7z x -y -oC:\Ruby${Env:ruby_version} libcurl-7.37.0-x64-windows.tar
+      #appveyor DownloadFile https://dl.bintray.com/oneclick/OpenKnapsack/x64/libcurl-7.37.0-x64-windows.tar.lzma
+      #7z e libcurl-7.37.0-x64-windows.tar.lzma
+      #7z x -y -oC:\Ruby${Env:ruby_version} libcurl-7.37.0-x64-windows.tar
 
       # copy C:\Ruby25-x64\bin\libcurl-4.dll C:\Ruby25-x64\bin\libcurl.dll
-  - echo %Path%
   - bundle config --local path vendor/bundle
   - bundle config build.openssl --with-openssl-dir=%openssl_dir%
   - ruby -v
