@@ -34,7 +34,7 @@ build_script:
   # https://github.com/eventmachine/eventmachine/issues/820
   # https://github.com/eventmachine/eventmachine/issues/800
   #
-  - gem install eventmachine --platform=ruby
+  - gem install eventmachine --platform ruby
   - bundle install
 test_script:
   - bundle exec rake --quiet
