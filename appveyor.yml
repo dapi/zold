@@ -30,7 +30,6 @@ install:
   - ruby -v
   - bundle -v
 build_script:
-  - bundle update
   - bundle install
   - gem search -l eventmachine
 test_script:
