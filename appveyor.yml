@@ -18,7 +18,6 @@ install:
   - ps: |
         appveyor DownloadFile "https://dl.dropboxusercontent.com/s/jxwohqax4e2avyt/libcurl-7.48.0-WinSSL-zlib-x86-x64.zip?dl=0" -FileName libcurl.zip
         7z x libcurl.zip
-        dir
         cp dmd2\windows\bin64\libcurl.dll C:\Ruby${Env:ruby_version}\bin
         cp dmd2\windows\lib64\curl.lib C:\Ruby${Env:ruby_version}\bin
 
