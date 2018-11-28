@@ -22,6 +22,7 @@ install:
   # Copy libcurl.{dll,lib} and add to PATH, so that libcurl.dll is found during the tests
   - ps: |
         md libcurl\ldc2
+        echo $Env:APPVEYOR_JOB_ARCH
         If ($Env:APPVEYOR_JOB_ARCH -eq 'x64') {
           echo 'curl x64'
           cp libcurl\dmd2\windows\bin64\libcurl.dll libcurl\ldc2
@@ -51,6 +52,7 @@ install:
   - ruby -v
   - bundle -v
 build_script:
+  - bundle update
   - bundle install
 test_script:
   - bundle exec rake --quiet
